@@ -1,0 +1,284 @@
+---------------- CREATION OF TABLES -------------------------
+
+CREATE TABLE cameras 
+( camera_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+model VARCHAR(15),
+resolution_range VARCHAR(5),
+fps_range VARCHAR(5) 
+);
+
+CREATE TABLE resolutions (
+resolution_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+resolution VARCHAR(15)
+);
+
+CREATE TABLE bitrates(
+bitrate_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+bitrate VARCHAR(10)
+);
+
+CREATE TABLE fps(
+fps_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+fps VARCHAR(5)
+);
+
+CREATE TABLE bitrate_ranges(
+bitrate_range_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+resolution_id INT NOT NULL,
+fps_id INT NOT NULL,
+bitrate_range VARCHAR(5),
+CONSTRAINT resolutions_resolution_id_fk
+FOREIGN KEY (resolution_id) REFERENCES resolutions (resolution_id),
+CONSTRAINT fps_fps_id_fk
+FOREIGN KEY (fps_id) REFERENCES fps (fps_id)
+);
+
+
+-H gia na valo automata olous tous sindiasmous resolutions me fps dimiourgo to bitrate_ranges TABLE opos parakato:
+
+
+
+CREATE TABLE bitrate_ranges AS 
+SELECT resolutions.resolution_id, fps.fps_id from
+resolutions CROSS JOIN
+FPS;
+
+ALTER TABLE bitrate_ranges ADD bitrate_ranges_id INT NOT NULL AUTO_INCREMENT BEFORE resolution_id;
+
+ALTER TABLE bitrate_ranges ADD bitrate_range VARCHAR(5) AFTER fps_id;
+
+ALTER TABLE bitrate_ranges ADD PRIMARY KEY(bitrate_ranges_id);
+
+ALTER TABLE bitrate_ranges ADD CONSTRAINT resolutions_resolution_id_fk 
+FOREIGN KEY (resolution_id) REFERENCES resolutions(resolution_id);
+
+ALTER TABLE bitrate_ranges ADD CONSTRAINT fps_fps_id_fk 
+FOREIGN KEY (fps_id) REFERENCES fps(fps_id);
+
+Etsi sto INSERT tha exo mono tin teleutaia stili na simpliroso!
+
+
+
+----------------- POPULATING THE TABLES -----------------------
+
+INSERT INTO cameras (model,resolution_range,fps_range) VALUES
+('HFW1100CP', '1,4', '1,5'), ('HFW3200P-W', '1,5', '1,5'), ('HDW2100', '1,4', '1,5'), 
+('HDW1100', '1,4', '1,5'), ('HFW3300CP', '1,6', '1,5');
+
+
+INSERT INTO resolutions (resolution) VALUES
+('D1'),('720p'),('1,3MPixel'),('1080p'),('3MPixel'),('5MPixels');
+
+INSERT INTO bitrates (bitrate) VALUES
+(128),(256),(512),(1024),(2048),(4096),(8192);
+
+INSERT INTO fps (fps) VALUES
+(5),(8),(15),(25),(30);
+
+Oi protes stiles tou bitrate_ranges ginontai automata apo to CROSS JOIN (sindiasmos) kai meta
+apaiteitai UPDATE gia tin teleutaia stili:
+
+UPDATE bitrate_ranges SET bitrate_range = '1,1' WHERE bitrate_ranges_id=1;
+UPDATE bitrate_ranges SET bitrate_range = '1,2' WHERE bitrate_ranges_id=2;
+UPDATE bitrate_ranges SET bitrate_range = '1,3' WHERE bitrate_ranges_id=3;
+UPDATE bitrate_ranges SET bitrate_range = '1,3' WHERE bitrate_ranges_id=4;
+UPDATE bitrate_ranges SET bitrate_range = '1,4' WHERE bitrate_ranges_id=5;
+UPDATE bitrate_ranges SET bitrate_range = '1,5' WHERE bitrate_ranges_id=6;
+UPDATE bitrate_ranges SET bitrate_range = '1,2' WHERE bitrate_ranges_id=7;
+UPDATE bitrate_ranges SET bitrate_range = '1,3' WHERE bitrate_ranges_id=8;
+UPDATE bitrate_ranges SET bitrate_range = '1,3' WHERE bitrate_ranges_id=9;
+UPDATE bitrate_ranges SET bitrate_range = '1,3' WHERE bitrate_ranges_id=10;
+UPDATE bitrate_ranges SET bitrate_range = '1,4' WHERE bitrate_ranges_id=11;
+UPDATE bitrate_ranges SET bitrate_range = '1,5' WHERE bitrate_ranges_id=12;
+UPDATE bitrate_ranges SET bitrate_range = '1,5' WHERE bitrate_ranges_id=13;
+UPDATE bitrate_ranges SET bitrate_range = '1,5' WHERE bitrate_ranges_id=14;
+UPDATE bitrate_ranges SET bitrate_range = '1,7' WHERE bitrate_ranges_id=15;
+UPDATE bitrate_ranges SET bitrate_range = '1,5' WHERE bitrate_ranges_id=16;
+UPDATE bitrate_ranges SET bitrate_range = '1,6' WHERE bitrate_ranges_id=17;
+UPDATE bitrate_ranges SET bitrate_range = '1,6' WHERE bitrate_ranges_id=18;
+UPDATE bitrate_ranges SET bitrate_range = '1,4' WHERE bitrate_ranges_id=19;
+UPDATE bitrate_ranges SET bitrate_range = '1,4' WHERE bitrate_ranges_id=20;
+UPDATE bitrate_ranges SET bitrate_range = '1,3' WHERE bitrate_ranges_id=21;
+UPDATE bitrate_ranges SET bitrate_range = '1,6' WHERE bitrate_ranges_id=22;
+UPDATE bitrate_ranges SET bitrate_range = '1,7' WHERE bitrate_ranges_id=23;
+UPDATE bitrate_ranges SET bitrate_range = '1,6' WHERE bitrate_ranges_id=24;
+UPDATE bitrate_ranges SET bitrate_range = '1,6' WHERE bitrate_ranges_id=25;
+UPDATE bitrate_ranges SET bitrate_range = '1,6' WHERE bitrate_ranges_id=26;
+UPDATE bitrate_ranges SET bitrate_range = '1,7' WHERE bitrate_ranges_id=27;
+UPDATE bitrate_ranges SET bitrate_range = '1,7' WHERE bitrate_ranges_id=28;
+UPDATE bitrate_ranges SET bitrate_range = '1,7' WHERE bitrate_ranges_id=29;
+UPDATE bitrate_ranges SET bitrate_range = '1,7' WHERE bitrate_ranges_id=30;
+
+
+
+
+--------------------------- Creation of Junction Tables sti MySQL  ---------------------
+
+
+CREATE TABLE models AS SELECT camera_id,model FROM cameras;
+
+ALTER TABLE models CHANGE COLUMN camera_id model_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY;
+------------ H2 Syntax--------
+ALTER TABLE models ALTER COLUMN camera_id  INT NOT NULL AUTO_INCREMENT;
+ALTER TABLE models ALTER COLUMN camera_id  RENAME TO model_id ;
+ALTER TABLE models ADD PRIMARY KEY (model_id) ;
+------------ H2 Syntax--------
+
+
+
+CREATE TABLE models_resolutions (
+model_id INT NOT NULL,
+resolution_id INT NOT NULL,
+CONSTRAINT models_resolutions_model_id_fk
+FOREIGN KEY (model_id) REFERENCES models (model_id),
+CONSTRAINT models_resolutions_resolution_id_fk
+FOREIGN KEY (resolution_id) REFERENCES resolutions (resolution_id),
+PRIMARY KEY (model_id,resolution_id)
+);
+
+
+INSERT INTO models_resolutions VALUES 
+(1,1),(1,2),(1,3),(1,4),
+(2,1),(2,2),(2,3),(2,4),(2,5),
+(3,1),(3,2),(3,3),(3,4),
+(4,1),(4,2),(4,3),
+(5,1),(5,2),(5,3),(5,4),(5,5),(5,6);
+
+
+
+
+CREATE TABLE models_fps (
+model_id INT NOT NULL,
+fps_id INT NOT NULL,
+PRIMARY KEY (model_id, fps_id),
+CONSTRAINT models_fps_model_id_fk
+FOREIGN KEY (model_id) REFERENCES models (model_id),
+CONSTRAINT models_fps_fps_id_fk
+FOREIGN KEY (fps_id) REFERENCES fps (fps_id)
+);
+
+INSERT INTO models_fps VALUES
+(1,1),(1,2),(1,3),(1,4),(1,5),
+(2,1),(2,2),(2,3),(2,4),(2,5),
+(3,1),(3,2),(3,3),(3,4),(3,5),
+(4,1),(4,2),(4,3),(4,4),(4,5),
+(5,1),(5,2),(5,3),(5,4),(5,5);
+
+
+
+*****-----------*****
+DROP TABLE cameras;
+*****-----------*****
+
+
+
+CREATE TABLE resolutions_fps_combo AS
+SELECT resolutions.resolution_id, fps.fps_id FROM
+resolutions CROSS JOIN fps;
+
+ALTER TABLE resolutions_fps_combo ADD COLUMN
+resolution_fps_combo_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST;
+----------- H2 Syntax ---------------
+ALTER TABLE resolutions_fps_combo ADD 
+resolution_fps_combo_id INT NOT NULL AUTO_INCREMENT BEFORE resolution_id;
+ALTER TABLE resolutions_fps_combo ADD PRIMARY KEY (resolution_fps_combo_id);
+----------- H2 Syntax ---------------
+
+ALTER TABLE resolutions_fps_combo 
+ADD CONSTRAINT resolutions_fps_combo_resolution_id_fk
+FOREIGN KEY(resolution_id) REFERENCES resolutions (resolution_id);
+
+ALTER TABLE resolutions_fps_combo 
+ADD CONSTRAINT resolutions_fps_combo_fps_id_fk
+FOREIGN KEY(fps_id) REFERENCES fps (fps_id);
+
+
+CREATE TABLE resolutions_fps_combo_bitrates (
+resolution_fps_combo_id INT NOT NULL,
+bitrate_id INT NOT NULL,
+PRIMARY KEY(resolution_fps_combo_id, bitrate_id),
+CONSTRAINT resolutions_fps_combo_bitrates_resolution_fps_combo_id_fk
+FOREIGN KEY (resolution_fps_combo_id) REFERENCES resolutions_fps_combo (resolution_fps_combo_id),
+CONSTRAINT resolutions_fps_combo_bitrates_bitrate_id_fk
+FOREIGN KEY (bitrate_id) REFERENCES bitrates (bitrate_id)
+);
+
+
+INSERT INTO resolutions_fps_combo_bitrates VALUES
+(1,1),
+(2,1),(2,2),
+(3,1),(3,2),(3,3),
+(4,1),(4,2),(4,3),
+(5,1),(5,2),(5,3),(5,4),
+(6,1),(6,2),(6,3),(6,4),(6,5),
+(7,1),(7,2),
+(8,1),(8,2),(8,3),
+(9,1),(9,2),(9,3),
+(10,1),(10,2),(10,3),
+(11,1),(11,2),(11,3),(11,4),
+(12,1),(12,2),(12,3),(12,4),(12,5),
+(13,1),(13,2),(13,3),(13,4),(13,5),
+(14,1),(14,2),(14,3),(14,4),(14,5),
+(15,1),(15,2),(15,3),(15,4),(15,5),(15,6),(15,7),
+(16,1),(16,2),(16,3),(16,4),(16,5),
+(17,1),(17,2),(17,3),(17,4),(17,5),(17,6),
+(18,1),(18,2),(18,3),(18,4),(18,5),(18,6),
+(19,1),(19,2),(19,3),(19,4),
+(20,1),(20,2),(20,3),(20,4),
+(21,1),(21,2),(21,3),
+(22,1),(22,2),(22,3),(22,4),(22,5),(22,6),
+(23,1),(23,2),(23,3),(23,4),(23,5),(23,6),(23,7),
+(24,1),(24,2),(24,3),(24,4),(24,5),(24,6),
+(25,1),(25,2),(25,3),(25,4),(25,5),(25,6),
+(26,1),(26,2),(26,3),(26,4),(26,5),(26,6),
+(27,1),(27,2),(27,3),(27,4),(27,5),(27,6),(27,7),
+(28,1),(28,2),(28,3),(28,4),(28,5),(28,6),(28,7),
+(29,1),(29,2),(29,3),(29,4),(29,5),(29,6),(29,7),
+(30,1),(30,2),(30,3),(30,4),(30,5),(30,6),(30,7);
+
+
+
+*****-----------*****
+DROP TABLE bitrate_ranges;
+*****-----------*****
+
+------------ SAMPLE QUERIES -------------
+
+Na vrethei to bitrate gia resolution-1080p kai fps-25:
+
+SELECT bitrates.bitrate
+FROM resolutions
+NATURAL JOIN resolutions_fps_combo
+NATURAL JOIN fps
+NATURAL JOIN resolutions_fps_combo_bitrates
+NATURAL JOIN bitrates
+WHERE resolutions.resolution =  '1080p'
+AND fps.fps =  '25' 
+ORDER BY bitrates.bitrate_id;
+
+
+------------ H2 syntax -------------
+SELECT bitrates.bitrate
+FROM resolutions
+INNER JOIN resolutions_fps_combo ON resolutions.resolution_id = resolutions_fps_combo.resolution_id
+INNER JOIN fps ON resolutions_fps_combo.fps_id = fps.fps_id
+INNER JOIN resolutions_fps_combo_bitrates ON resolutions_fps_combo.resolution_fps_combo_id = resolutions_fps_combo_bitrates.resolution_fps_combo_id
+INNER JOIN bitrates ON resolutions_fps_combo_bitrates.bitrate_id = bitrates.bitrate_id
+WHERE resolutions.resolution =  '1080p'
+AND fps.fps =  '25' 
+ORDER BY bitrates.bitrate_id;
+------------ H2 syntax -------------   *** Eno douleuei to NATURAL JOIN stin H2 
+					*** Se auto to query mperdeutike mallon epeidi einai 
+					*** polla ta joins. Etsi xreiastike na ginei pio sygekrimeno
+					*** me INNER JOIN kai ON ...
+
+
+
+
+ALTER TABLE models  AUTO_INCREMENT = 1;    **Reset the primary key to 1**
+
+------------ H2 syntax -------------
+ALTER TABLE models ALTER COLUMN model_id RESTART WITH 1;
+------------ H2 syntax -------------
+
+
