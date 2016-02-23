@@ -1,0 +1,2 @@
+11-20 10:39:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: The object is already closed [90007-182]

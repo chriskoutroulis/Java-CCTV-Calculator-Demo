@@ -1,0 +1,303 @@
+11-19 11:59:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "RESOLUTIONS_FPS_COMBO_BITRATE" not found; SQL statement:
+SELECT * FROM resolutions_fps_combo_bitrate [42102-182]
+11-19 12:11:06 jdbc[6]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-182]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:174)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:119)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:92)
+	at org.h2.Driver.connect(Driver.java:72)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at gr.keeper.test.DataLoader.connectToDatabase(DataLoader.java:31)
+	at gr.keeper.test.DataLoader.findFrameRange(DataLoader.java:249)
+	at gr.keeper.test.GraphicalInterface$4.itemStateChanged(GraphicalInterface.java:201)
+	at javax.swing.JComboBox.fireItemStateChanged(Unknown Source)
+	at javax.swing.JComboBox.selectedItemChanged(Unknown Source)
+	at javax.swing.JComboBox.contentsChanged(Unknown Source)
+	at javax.swing.AbstractListModel.fireContentsChanged(Unknown Source)
+	at javax.swing.DefaultComboBoxModel.setSelectedItem(Unknown Source)
+	at javax.swing.JComboBox.setSelectedItem(Unknown Source)
+	at javax.swing.JComboBox.setSelectedIndex(Unknown Source)
+	at javax.swing.plaf.basic.BasicComboPopup$Handler.mouseReleased(Unknown Source)
+	at java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at javax.swing.plaf.basic.BasicComboPopup$1.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$400(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 53 more
+11-19 12:11:06 jdbc[6]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-182]
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.message.DbException.get(DbException.java:144)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:174)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:119)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:92)
+	at org.h2.Driver.connect(Driver.java:72)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at java.sql.DriverManager.getConnection(Unknown Source)
+	at gr.keeper.test.DataLoader.connectToDatabase(DataLoader.java:31)
+	at gr.keeper.test.DataLoader.findFrameRange(DataLoader.java:249)
+	at gr.keeper.test.GraphicalInterface$4.itemStateChanged(GraphicalInterface.java:201)
+	at javax.swing.JComboBox.fireItemStateChanged(Unknown Source)
+	at javax.swing.JComboBox.selectedItemChanged(Unknown Source)
+	at javax.swing.JComboBox.contentsChanged(Unknown Source)
+	at javax.swing.AbstractListModel.fireContentsChanged(Unknown Source)
+	at javax.swing.DefaultComboBoxModel.setSelectedItem(Unknown Source)
+	at javax.swing.JComboBox.setSelectedItem(Unknown Source)
+	at javax.swing.JComboBox.setSelectedIndex(Unknown Source)
+	at javax.swing.plaf.basic.BasicComboPopup$Handler.mouseReleased(Unknown Source)
+	at java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at javax.swing.plaf.basic.BasicComboPopup$1.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$400(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 53 more
+11-19 12:12:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Ambiguous column name "BITRATE_ID"; SQL statement:
+SELECT bitrates.bitrate FROM resolutions NATURAL JOIN resolutions_fps_combo NATURAL JOIN fps NATURAL JOIN resolutions_fps_combo_bitrates NATURAL JOIN bitrates WHERE resolutions.resolution = '1,3MPixel' AND fps.fps = '15' ORDER BY bitrate_id [90059-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:124)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:94)
+	at org.h2.command.dml.Select.mapColumns(Select.java:1179)
+	at org.h2.command.dml.Select.init(Select.java:804)
+	at org.h2.command.Parser.parseSelect(Parser.java:1675)
+	at org.h2.command.Parser.parsePrepared(Parser.java:433)
+	at org.h2.command.Parser.parse(Parser.java:305)
+	at org.h2.command.Parser.parse(Parser.java:277)
+	at org.h2.command.Parser.prepareCommand(Parser.java:242)
+	at org.h2.engine.Session.prepareLocal(Session.java:446)
+	at org.h2.engine.Session.prepareCommand(Session.java:388)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1190)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at gr.keeper.test.DataLoader.findBitrateRange(DataLoader.java:282)
+	at gr.keeper.test.GraphicalInterface$5.itemStateChanged(GraphicalInterface.java:221)
+	at javax.swing.JComboBox.fireItemStateChanged(Unknown Source)
+	at javax.swing.JComboBox.selectedItemChanged(Unknown Source)
+	at javax.swing.JComboBox.contentsChanged(Unknown Source)
+	at javax.swing.AbstractListModel.fireContentsChanged(Unknown Source)
+	at javax.swing.DefaultComboBoxModel.setSelectedItem(Unknown Source)
+	at javax.swing.JComboBox.setSelectedItem(Unknown Source)
+	at javax.swing.JComboBox.setSelectedIndex(Unknown Source)
+	at javax.swing.plaf.basic.BasicComboPopup$Handler.mouseReleased(Unknown Source)
+	at java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at javax.swing.plaf.basic.BasicComboPopup$1.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$400(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+11-19 12:31:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT bitrates.bitrate
+FROM resolutions
+NATURAL JOIN resolutions_fps_combo
+NATURAL JOIN fps
+NATURAL JOIN resolutions_fps_combo_bitrates
+NATURAL JOIN bitrates
+WHERE resolutions.resolution =  '1080p'
+AND fps.fps =  [*]'6 
+GROUP BY bitrates.bitrate
+ORDER BY bitrates.bitrate_id"; SQL statement:
+SELECT bitrates.bitrate
+FROM resolutions
+NATURAL JOIN resolutions_fps_combo
+NATURAL JOIN fps
+NATURAL JOIN resolutions_fps_combo_bitrates
+NATURAL JOIN bitrates
+WHERE resolutions.resolution =  '1080p'
+AND fps.fps =  '6 
+GROUP BY bitrates.bitrate
+ORDER BY bitrates.bitrate_id [42000-182]
+11-19 12:31:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT bitrates.bitrate
+FROM resolutions
+NATURAL JOIN resolutions_fps_combo
+NATURAL JOIN fps
+NATURAL JOIN resolutions_fps_combo_bitrates
+NATURAL JOIN bitrates
+WHERE resolutions.resolution =  '1080p'
+AND fps.fps =  [*]'5 
+GROUP BY bitrates.bitrate
+ORDER BY bitrates.bitrate_id"; SQL statement:
+SELECT bitrates.bitrate
+FROM resolutions
+NATURAL JOIN resolutions_fps_combo
+NATURAL JOIN fps
+NATURAL JOIN resolutions_fps_combo_bitrates
+NATURAL JOIN bitrates
+WHERE resolutions.resolution =  '1080p'
+AND fps.fps =  '5 
+GROUP BY bitrates.bitrate
+ORDER BY bitrates.bitrate_id [42000-182]
+11-19 13:39:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: The object is already closed [90007-182]
+11-19 13:40:49 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: The object is already closed [90007-182]
+11-19 13:48:19 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: The object is already closed [90007-182]
+11-21 09:48:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CHECKSUM[*] MODELS EXTENDED "; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT, {"; SQL statement:
+CHECKSUM models EXTENDED [42001-182]
+11-21 09:55:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INFORMATION_SCHEMA[*].TRIGGERS"; expected "INSERT, {"; SQL statement:
+INFORMATION_SCHEMA.TRIGGERS [42001-182]
+11-21 12:38:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "TTABLE_NAME" not found; SQL statement:
+SELECT ttable_name FROM  INFORMATION_SCHEMA.TABLES WHERE table_schema = 'public' [42122-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.command.dml.Select.prepare(Select.java:829)
+	at org.h2.command.Parser.prepareCommand(Parser.java:247)
+	at org.h2.engine.Session.prepareLocal(Session.java:446)
+	at org.h2.engine.Session.prepareCommand(Session.java:388)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1190)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:170)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:158)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1390)
+	at org.h2.server.web.WebApp.query(WebApp.java:1063)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1025)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1012)
+	at org.h2.server.web.WebThread.process(WebThread.java:167)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Unknown Source)
+11-21 14:26:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "RESOLUTIONS_FPS_COMBO_BITRATES" not found; SQL statement:
+SELECT checksum FROM checksums WHERE table =  RESOLUTIONS_FPS_COMBO_BITRATES [42122-182]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Comparison.optimize(Comparison.java:180)
+	at org.h2.command.dml.Select.prepare(Select.java:832)
+	at org.h2.command.Parser.prepareCommand(Parser.java:247)
+	at org.h2.engine.Session.prepareLocal(Session.java:446)
+	at org.h2.engine.Session.prepareCommand(Session.java:388)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1190)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:73)
+	at gr.keeper.test.DataLoader.checkForChanges(DataLoader.java:88)
+	at gr.keeper.test.DataLoader.copyFromDatabase(DataLoader.java:105)
+	at gr.keeper.test.DataLoader.<init>(DataLoader.java:47)
+	at gr.keeper.test.GraphicalInterface$DataCopyWorker.doInBackground(GraphicalInterface.java:632)
+	at gr.keeper.test.GraphicalInterface$DataCopyWorker.doInBackground(GraphicalInterface.java:1)
+	at javax.swing.SwingWorker$1.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at javax.swing.SwingWorker.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+11-21 14:52:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: The object is already closed [90007-182]
+11-21 14:55:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: The object is already closed [90007-182]
+11-21 14:56:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: The object is already closed [90007-182]
+11-21 14:57:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: The object is already closed [90007-182]
+11-21 14:57:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: The object is already closed [90007-182]
+11-21 14:58:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: The object is already closed [90007-182]
+11-21 15:04:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: The object is already closed [90007-182]
+11-21 15:07:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: The object is already closed [90007-182]
+11-21 15:13:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: The object is already closed [90007-182]
+11-21 15:16:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: The object is already closed [90007-182]
+11-21 15:21:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: The object is already closed [90007-182]
